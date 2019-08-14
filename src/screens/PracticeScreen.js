@@ -13,11 +13,39 @@ class PracticeScreen extends React.Component {
             audio_state: null,
             finish: false
         }
-        this.audio = {
-            start: new Sound('source to start audio', Sound.MAIN_BUNDLE),
-            incorrect: new Sound('source to incorrect audio', Sound.MAIN_BUNDLE),
-            finish: new Sound('source to finish audio', Sound.MAIN_BUNDLE)
-        }
+        // this.audio = {
+        //     start_1: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        //         if (error) {
+        //             console.log('failed to load the sound', error);
+        //             return;
+        //         }
+        //     }),
+        //     start_2: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        //         if (error) {
+        //             console.log('failed to load the sound', error);
+        //             return;
+        //         }
+        //     }),
+        //     start_3: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        //         if (error) {
+        //             console.log('failed to load the sound', error);
+        //             return;
+        //         }
+        //     }),
+        //     incorrect: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        //         if (error) {
+        //             console.log('failed to load the sound', error);
+        //             return;
+        //         }
+        //     }),
+        //     finish: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        //         if (error) {
+        //             console.log('failed to load the sound', error);
+        //             return;
+        //         }
+        //     })
+        // }
+        this.current_audio = null
     }
 
     _socketInit = () => {
@@ -36,15 +64,35 @@ class PracticeScreen extends React.Component {
                 has_error: msg.has_error
             }, () => {
                 if (this.state.finish) {
-                    this.props.navigation.navigate('FinishScreen')
+                    this.current_audio.stop(() => {
+                        this.current_audio = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+                            if (error) {
+                                console.log('failed to load the sound', error);
+                                return;
+                            }
+                            this.current_audio.play((success) => {
+                                if (success) {
+                                    console.log('successfully finished playing');
+                                    this.props.navigation.navigate('FinishScreen')
+                                } else {
+                                    console.log('playback failed due to audio decoding errors');
+                                }
+                            });
+                        });
+                    })
                 } else {
                     if (this.state.has_error) {
                         if (!this.state.audio_playing) {
                             this.setState({
                                 audio_playing: true,
-                                audio_state: 'incorrect'
                             }, () => {
-                                this.state.audio["'" + this.state.audio_state + "'"].play()
+                                this.current_audio = new Sound('bao_loi_nam.mp3', Sound.MAIN_BUNDLE, (error) => {
+                                    if (error) {
+                                        console.log('failed to load the sound', error);
+                                        return;
+                                    }
+                                    this.current_audio.play()
+                                });
                             })
                         }
                     }
@@ -54,13 +102,58 @@ class PracticeScreen extends React.Component {
         // this.socket.emit('data','dummy data');
     }
 
+
     componentDidMount() {
         this._socketInit();
-        // mo audio start 1 - 5s - 2 - 4s - 3 
-        this.autoPicture = setInterval(() => {
-            console.log('Got here')
-            this._takePicture()
-        }, 2000)
+        this.current_audio = new Sound('start_mot_nam.mp3', Sound.MAIN_BUNDLE, (error) => {
+            if (error) {
+                console.log('failed to load the sound', error);
+                return;
+            }
+            this.current_audio.play((success) => {
+                if (success) {
+                    console.log('successfully finished playing');
+                    this.current_audio = new Sound('start_hai_nam.mp3', Sound.MAIN_BUNDLE, (error) => {
+                        if (error) {
+                            console.log('failed to load the sound', error);
+                            return;
+                        }
+                        setTimeout(() => {
+                            this.current_audio.play((success) => {
+                                if (success) {
+                                    console.log('successfully finished playing');
+                                    this.current_audio = new Sound('start_ba_nam.mp3', Sound.MAIN_BUNDLE, (error) => {
+                                        if (error) {
+                                            console.log('failed to load the sound', error);
+                                            return;
+                                        }
+                                        setTimeout(() => {
+                                            this.current_audio.play((success) => {
+                                                if (success) {
+                                                    console.log('successfully finished playing');
+                                                    this.autoPicture = setInterval(() => {
+                                                        console.log('Got here')
+                                                        this._takePicture()
+                                                    }, 2000)
+                                                } else {
+                                                    console.log('playback failed due to audio decoding errors');
+                                                }
+                                            });
+                                        }, 2000)
+                                    });
+                                } else {
+                                    console.log('playback failed due to audio decoding errors');
+                                }
+                            });
+                        }, 2000)
+
+                    });
+                } else {
+                    console.log('playback failed due to audio decoding errors');
+                }
+            });
+        });
+
     }
     render() {
         if (!this.state.finish) {
@@ -90,7 +183,7 @@ class PracticeScreen extends React.Component {
         if (this.camera) {
             const options = { quality: 0.5, base64: true, doNotSave: true, orientation: "landscapeLeft", width: 432 };
             const data = await this.camera.takePictureAsync(options);
-            this.socket.emit('data', data.base64)
+            // this.socket.emit('data', data.base64)
         }
     };
 }

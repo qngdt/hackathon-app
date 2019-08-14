@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 const Sound = require('react-native-sound');
 import Video from 'react-native-video';
+Sound.setCategory('Playback');
 
 
 class SetupTutorialScreen extends React.Component {
@@ -10,16 +11,50 @@ class SetupTutorialScreen extends React.Component {
     title: 'Hướng dẫn setup camera',
   };
 
+  constructor(props) {
+    super(props)
+    this.audio = {
+      start_1: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          return;
+        }
+      }),
+      start_2: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          return;
+        }
+      }),
+      start_3: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          return;
+        }
+      }),
+      incorrect: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          return;
+        }
+      }),
+      finish: new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('failed to load the sound', error);
+          return;
+        }
+      })
+    }
+    this.current_audio = this.audio.start_1
+  }
+
+
   componentDidMount() {
-    // whoosh = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+    // const whoosh = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
     //   if (error) {
     //     console.log('failed to load the sound', error);
     //     return;
     //   }
-    //   // loaded successfully
-    //   console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
-
-    //   // Play the sound with an onEnd callback
     //   whoosh.play((success) => {
     //     if (success) {
     //       console.log('successfully finished playing');
@@ -49,7 +84,7 @@ class SetupTutorialScreen extends React.Component {
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('PracticeScreen')}
             style={styles.button}>
-            <Text style={styles.buttonText}>Setup</Text>
+            <Text style={styles.buttonText}>Bắt đầu tập</Text>
           </TouchableOpacity>
         </View>
       </View>
