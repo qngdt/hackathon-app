@@ -9,23 +9,26 @@ class SetupScreen extends React.Component {
     this.state = {
       scan: true
     }
-   
+
   }
 
   _socketInit = () => {
-    this.socket = socketIO('http://192.168.10.109:5000', {
+    // this.socket = socketIO('http://123.16.252.96:5047', {
+    //   secure: false,
+    //   transports: ['websocket']
+    // })
+    this.socket = socketIO('http://192.168.10.109:5047', {
       secure: false,
       transports: ['websocket']
     })
-    this.socket.connect(); 
+    this.socket.connect();
     console.log('Connected to Socket')
-    this.socket.on('connect', () => { 
-      console.log('connected to socket server'); 
-    }); 
+    this.socket.on('connect', () => {
+      console.log('connected to socket server');
+    });
     this.socket.on('msg', (data) => {
       console.log('Data recieved from server', data);
     });
-    this.socket.emit('data', 'dummy data')
   }
 
   componentDidMount() {
@@ -33,7 +36,7 @@ class SetupScreen extends React.Component {
     setInterval(() => {
       console.log('Got here')
       this._takePicture()
-    }, 2000)
+    }, 1000)
   }
   render() {
     return (
@@ -62,9 +65,9 @@ class SetupScreen extends React.Component {
 
   _takePicture = async () => {
     if (this.camera) {
-      const options = { quality: 0.5, base64: true };
+      const options = { quality: 0.5, base64: true, doNotSave: true, orientation: "landscapeLeft", width: 432};
       const data = await this.camera.takePictureAsync(options);
-      this.socket.emit('data', 'ayy lmao')
+      this.socket.emit('data', data.base64)
 
     }
   };
@@ -78,8 +81,9 @@ const styles = StyleSheet.create({
   },
   preview: {
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    width: 1,
+    // justifyContent: 'flex-end',
+    // alignItems: 'center'
   },
   capture: {
     flex: 0,
