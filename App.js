@@ -13,7 +13,6 @@ const AppNavigator = createStackNavigator({
     SetSelectScreen: { screen: SetSelectScreen },
     SetDetailsScreen: { screen: SetDetailsScreen },
     SetupTutorialScreen: { screen: SetupTutorialScreen },
-    SetupScreen: { screen: SetupScreen },
     PracticeScreen: { screen: PracticeScreen },
     FinishScreen: { screen: FinishScreen }
 });

@@ -4,12 +4,14 @@ import { Header } from 'react-native-elements';
 import Video from 'react-native-video';
 
 class SetDetailsScreen extends React.Component {
+
+  static navigationOptions = {
+    title: 'Chi tiết động tác',
+  };
+
   render() {
     return (
       <View>
-        <Header
-          centerComponent={{ text: 'Bài tập X', style: { color: '#fff' } }}
-        />
         <View style={styles.container}>
           <Text>Video Hướng Dẫn</Text>
         </View>
@@ -37,21 +39,24 @@ class SetDetailsScreen extends React.Component {
 var styles = StyleSheet.create({
   container: {
     paddingLeft: 20,
-    paddingBottom: 10
+    paddingBottom: 10,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flex: 1
   },
   backgroundVideo: {
     position: 'absolute',
     height: 600,
-    top: 150,
+    top: 80,
     left: 0,
     bottom: 0,
     right: 0,
   },
   button: {
-    width: 325,
+    width: 250,
     position: 'absolute',
     top: 300,
-    left: 70,
+    left: 60,
     bottom: 0,
     borderColor: '#129793',
     borderWidth: 1,

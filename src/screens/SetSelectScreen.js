@@ -5,57 +5,97 @@ import { ListItem } from 'react-native-elements';
 class SetSelectScreen extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             setList: [
                 {
-                    name: 'Set 1',
-                    subtitle: 'Set 1',
-                    progress: '90%'
+                    name: 'Con cò',
+                    subtitle: 'Con cò',
+                    progress: '90%',
+                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Set 2',
-                    subtitle: 'Set 2',
-                    progress: '60%'
+                    name: 'Con cò',
+                    subtitle: 'Con cò',
+                    progress: '90%',
+                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Set 3',
-                    subtitle: 'Set 3',
-                    progress: '70%'
+                    name: 'Con cò',
+                    subtitle: 'Con cò',
+                    progress: '90%',
+                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                },
+                {
+                    name: 'Con cò',
+                    subtitle: 'Con cò',
+                    progress: '90%',
+                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                },
+                {
+                    name: 'Con cò',
+                    subtitle: 'Con cò',
+                    progress: '90%',
+                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                },
+                {
+                    name: 'Con cò',
+                    subtitle: 'Con cò',
+                    progress: '90%',
+                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                },
+                {
+                    name: 'Con cò',
+                    subtitle: 'Con cò',
+                    progress: '90%',
+                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                },
+                {
+                    name: 'Con cò',
+                    subtitle: 'Con cò',
+                    progress: '90%',
+                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 }
             ]
         }
     }
 
+    static navigationOptions = {
+        title: 'Danh sách động tác',
+      };
+
     keyExtractor = (item, index) => index.toString()
 
     renderItem = ({ item }) => (
         <ListItem
-            containerStyle={{ borderBottomWidth: 2 }}
             Component={TouchableOpacity}
             title={item.name}
+            leftAvatar={{ source: { uri: item.avatar_url } }}
             subtitle={item.subtitle}
             onPress={() => this.props.navigation.navigate('SetDetailsScreen')}
             badge={{ value: item.progress, containerStyle: { marginTop: -20 } }} />
     )
 
+    renderSeparator = () => {
+        return (
+            <View
+                style={{
+                    height: 1,
+                    backgroundColor: "#CED0CE",
+                }}
+            />
+        );
+    };
+
+
     render() {
         return (
             <View>
                 <View style={styles.container}>
-                    <Text>Bài tập đề nghị</Text>
                     <FlatList
                         style={{ padding: 20 }}
                         keyExtractor={this.keyExtractor}
                         data={this.state.setList}
-                        renderItem={this.renderItem} />
-                </View>
-                <View style={styles.container}>
-                    <Text>Bài tập lựa chọn</Text>
-                    <FlatList
-                        style={{ padding: 20 }}
-                        keyExtractor={this.keyExtractor}
-                        data={this.state.setList}
+                        ItemSeparatorComponent={this.renderSeparator}
                         renderItem={this.renderItem} />
                 </View>
             </View>
@@ -71,9 +111,6 @@ styles = StyleSheet.create({
         backgroundColor: '#fff',
         // alignItems: 'center',
         // justifyContent: 'center',
-        borderWidth: 3,
-        margin: 5,
-        padding: 10
     }
 });
 

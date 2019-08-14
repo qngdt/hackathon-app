@@ -2,11 +2,16 @@ import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
 class SetupTutorialScreen extends React.Component {
+
+  static navigationOptions = {
+    title: 'Hướng dẫn setup camera',
+  };
+
   render() {
     return (
       <View>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('SetupScreen')}
+          onPress={() => this.props.navigation.navigate('PracticeScreen')}
           style={styles.button}>
           <Text style={styles.buttonText}>Setup</Text>
         </TouchableOpacity>
@@ -22,10 +27,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   button: {
-    width: 325,
+    width: 250,
     position: 'absolute',
     top: 300,
-    left: 70,
+    left: 60,
     bottom: 0,
     borderColor: '#129793',
     borderWidth: 1,
