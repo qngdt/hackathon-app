@@ -13,7 +13,7 @@ class SetDetailsScreen extends React.Component {
     return (
       <View>
         <View style={styles.container}>
-          <Text>Video Hướng Dẫn</Text>
+          <Text style={styles.textStyle}>Video Hướng Dẫn</Text>
         </View>
         <Video
           repeat
@@ -24,7 +24,7 @@ class SetDetailsScreen extends React.Component {
           }}
           style={styles.backgroundVideo}
         />
-        <View style={styles.container}>
+        <View>
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('SetupTutorialScreen')}
             style={styles.button}>
@@ -38,11 +38,17 @@ class SetDetailsScreen extends React.Component {
 
 var styles = StyleSheet.create({
   container: {
-    paddingLeft: 20,
-    paddingBottom: 10,
-    justifyContent: 'flex-start',
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: "#129793",
     alignItems: 'center',
-    flex: 1
+    justifyContent: 'center',
+  },
+  textStyle: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    fontFamily: 'Cochin',
+    color: 'white'
   },
   backgroundVideo: {
     position: 'absolute',
@@ -78,7 +84,7 @@ var styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontSize: 12
+    fontSize: 16
   }
 });
 

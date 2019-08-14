@@ -51,10 +51,12 @@ class PracticeScreen extends React.Component {
                 }
             })
         });
+        // this.socket.emit('data','dummy data');
     }
 
     componentDidMount() {
         this._socketInit();
+        // mo audio start 1 - 5s - 2 - 4s - 3 
         this.autoPicture = setInterval(() => {
             console.log('Got here')
             this._takePicture()

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+const Sound = require('react-native-sound');
+import Video from 'react-native-video';
+
 
 class SetupTutorialScreen extends React.Component {
 
@@ -7,14 +10,48 @@ class SetupTutorialScreen extends React.Component {
     title: 'Hướng dẫn setup camera',
   };
 
+  componentDidMount() {
+    // whoosh = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+    //   if (error) {
+    //     console.log('failed to load the sound', error);
+    //     return;
+    //   }
+    //   // loaded successfully
+    //   console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
+
+    //   // Play the sound with an onEnd callback
+    //   whoosh.play((success) => {
+    //     if (success) {
+    //       console.log('successfully finished playing');
+    //     } else {
+    //       console.log('playback failed due to audio decoding errors');
+    //     }
+    //   });
+    // });
+  }
+
   render() {
     return (
       <View>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('PracticeScreen')}
-          style={styles.button}>
-          <Text style={styles.buttonText}>Setup</Text>
-        </TouchableOpacity>
+        <View style={styles.container}>
+          <Text style={styles.textStyle}>Video Hướng Dẫn</Text>
+        </View>
+        <Video
+          repeat
+          muted
+          source={require('../../assets/video/test.mp4')}   // Can be a URL or a local file.
+          ref={(ref) => {
+            this.player = ref
+          }}
+          style={styles.backgroundVideo}
+        />
+        <View>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('PracticeScreen')}
+            style={styles.button}>
+            <Text style={styles.buttonText}>Setup</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -22,9 +59,25 @@ class SetupTutorialScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: 'black',
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: "#129793",
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textStyle: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    fontFamily: 'Cochin',
+    color: 'white'
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    height: 600,
+    top: 80,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
   button: {
     width: 250,
@@ -52,7 +105,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontSize: 12
+    fontSize: 16
   }
 });
 
