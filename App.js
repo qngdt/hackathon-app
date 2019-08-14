@@ -4,7 +4,6 @@ import LoginScreen from './src/screens/LoginScreen'
 import SetSelectScreen from './src/screens/SetSelectScreen'
 import SetDetailsScreen from './src/screens/SetDetailsScreen'
 import SetupTutorialScreen from './src/screens/SetupTutorialScreen'
-import SetupScreen from './src/screens/SetupScreen'
 import PracticeScreen from './src/screens/PracticeScreen'
 import FinishScreen from './src/screens/FinishScreen'
 

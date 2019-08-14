@@ -89,7 +89,6 @@ class PracticeScreen extends React.Component {
             const options = { quality: 0.5, base64: true, doNotSave: true, orientation: "landscapeLeft", width: 432 };
             const data = await this.camera.takePictureAsync(options);
             this.socket.emit('data', data.base64)
-
         }
     };
 }
@@ -102,9 +101,8 @@ const styles = StyleSheet.create({
     },
     preview: {
         flex: 1,
-        width: 1,
-        // justifyContent: 'flex-end',
-        // alignItems: 'center'
+        justifyContent: 'flex-end',
+        alignItems: 'center'
     },
     capture: {
         flex: 0,
