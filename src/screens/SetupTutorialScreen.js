@@ -61,8 +61,9 @@ class SetupTutorialScreen extends React.Component {
     //     } else {
     //       console.log('playback failed due to audio decoding errors');
     //     }
-    //   });
+    //   }); 
     // });
+    // console.log('after');
   }
 
   render() {

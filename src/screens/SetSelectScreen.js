@@ -8,50 +8,50 @@ class SetSelectScreen extends React.Component {
         this.state = {
             setList: [
                 {
-                    name: 'Con cò',
-                    subtitle: 'Con cò',
+                    name: 'Bài tập cho người mới bắt đầu',
+                    subtitle: 'Bài tập cho người mới bắt đầu',
                     progress: '90%',
                     avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Con cò',
-                    subtitle: 'Con cò',
+                    name: 'Bài tập giảm béo',
+                    subtitle: 'Bài tập giảm béo',
                     progress: '90%',
                     avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Con cò',
-                    subtitle: 'Con cò',
+                    name: 'Bài tập tăng tuổi thọ',
+                    subtitle: 'Bài tập tăng tuổi thọ',
                     progress: '90%',
                     avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Con cò',
-                    subtitle: 'Con cò',
+                    name: 'Bài tập giảm stress',
+                    subtitle: 'Bài tập giảm stress',
                     progress: '90%',
                     avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Con cò',
-                    subtitle: 'Con cò',
+                    name: 'Bài tập giúp trắng da',
+                    subtitle: 'Bài tập giúp trắng da',
                     progress: '90%',
                     avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Con cò',
-                    subtitle: 'Con cò',
+                    name: 'Bài tập cải thiện trí thông minh',
+                    subtitle: 'Bài tập cải thiện trí thông minh',
                     progress: '90%',
                     avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Con cò',
-                    subtitle: 'Con cò',
+                    name: 'Bài tập giúp giảm đau lưng',
+                    subtitle: 'Bài tập giúp giảm đau lưng',
                     progress: '90%',
                     avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 },
                 {
-                    name: 'Con cò',
-                    subtitle: 'Con cò',
+                    name: 'Bài tập cải thiện đường hô hấp',
+                    subtitle: 'Bài tập cải thiện đường hô hấp',
                     progress: '90%',
                     avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
                 }

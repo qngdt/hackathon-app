@@ -4,13 +4,14 @@ import { RNCamera } from 'react-native-camera';
 const Sound = require('react-native-sound');
 const socketIO = require('socket.io-client');
 
-class PracticeScreen extends React.Component {
+class PracticeScreen2 extends React.Component {
     _isMounted = false;
 
     constructor(props) {
         super(props)
         this.audio_playing = false
         this.has_error = false
+        this.finish = false
         this.autoPicture = false
         this.socket = socketIO('http://192.168.10.109:5047', {
             secure: false,
@@ -24,9 +25,10 @@ class PracticeScreen extends React.Component {
             console.log('Message recieved from server', msg);
             if (msg != null) {
                 msg = JSON.parse(msg)
+                console.log(msg.finish, typeof (msg.finish))
                 if (msg.finish) {
                     clearInterval(this.autoPicture)
-                    this.props.navigation.navigate('PracticeScreen2')
+                    this.props.navigation.navigate('FinishScreen')
                 }
             }
         })
@@ -91,7 +93,7 @@ class PracticeScreen extends React.Component {
     // }
 
     componentDidMount() {
-        this.current_audio = new Sound('start_mot_nam.mp3', Sound.MAIN_BUNDLE, (error) => {
+        this.current_audio = new Sound('start_mot_bon.mp3', Sound.MAIN_BUNDLE, (error) => {
             if (error) {
                 console.log('failed to load the sound', error);
                 return;
@@ -99,7 +101,7 @@ class PracticeScreen extends React.Component {
             this.current_audio.play((success) => {
                 if (success) {
                     console.log('successfully finished playing');
-                    this.current_audio = new Sound('start_hai_nam.mp3', Sound.MAIN_BUNDLE, (error) => {
+                    this.current_audio = new Sound('start_hai_bon.mp3', Sound.MAIN_BUNDLE, (error) => {
                         if (error) {
                             console.log('failed to load the sound', error);
                             return;
@@ -108,7 +110,7 @@ class PracticeScreen extends React.Component {
                             this.current_audio.play((success) => {
                                 if (success) {
                                     console.log('successfully finished playing');
-                                    this.current_audio = new Sound('start_ba_nam.mp3', Sound.MAIN_BUNDLE, (error) => {
+                                    this.current_audio = new Sound('start_ba_bon.mp3', Sound.MAIN_BUNDLE, (error) => {
                                         if (error) {
                                             console.log('failed to load the sound', error);
                                             return;
@@ -196,4 +198,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default PracticeScreen;
+export default PracticeScreen2;
