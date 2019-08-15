@@ -17,25 +17,25 @@ class SetSelectScreen extends React.Component {
                     name: 'Bài tập giảm béo',
                     subtitle: 'Bài tập giảm béo',
                     progress: '90%',
-                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                    avatar_url: 'https://previews.123rf.com/images/kahovsky/kahovsky1812/kahovsky181200080/113610427-cute-smiling-happy-strong-avocado-meditate-in-yoga-pose-vector-flat-cartoon-character-illustration-i.jpg'
                 },
                 {
                     name: 'Bài tập tăng tuổi thọ',
                     subtitle: 'Bài tập tăng tuổi thọ',
                     progress: '90%',
-                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                    avatar_url: 'https://previews.123rf.com/images/djvstock/djvstock1712/djvstock171210886/92416256-cute-brain-practicing-yoga-icon-over-white-background-illustration-.jpg'
                 },
                 {
                     name: 'Bài tập giảm stress',
                     subtitle: 'Bài tập giảm stress',
                     progress: '90%',
-                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                    avatar_url: 'https://images-na.ssl-images-amazon.com/images/I/411cb-LkHTL.jpg'
                 },
                 {
                     name: 'Bài tập giúp trắng da',
                     subtitle: 'Bài tập giúp trắng da',
                     progress: '90%',
-                    avatar_url: 'https://cdn4.iconfinder.com/data/icons/yoga-meditation-exercise-1/128/13-512.png'
+                    avatar_url: 'https://media.istockphoto.com/vectors/cartoon-boy-in-yoga-pose-with-cute-cat-kids-practicing-yoga-icon-vector-id1161389291'
                 },
                 {
                     name: 'Bài tập cải thiện trí thông minh',
@@ -60,7 +60,7 @@ class SetSelectScreen extends React.Component {
     }
 
     static navigationOptions = {
-        title: 'Danh sách động tác',
+        title: 'Danh sách bài tập',
       };
 
     keyExtractor = (item, index) => index.toString()

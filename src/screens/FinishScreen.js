@@ -31,7 +31,7 @@ class FinishScreen extends React.Component {
         <Video
           repeat
           muted
-          source={require('../../assets/video/test.mp4')}   // Can be a URL or a local file.
+          source={require('../../assets/video/sample02.mp4')}   // Can be a URL or a local file.
           ref={(ref) => {
             this.player = ref
           }}

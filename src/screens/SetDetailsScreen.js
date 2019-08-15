@@ -18,7 +18,7 @@ class SetDetailsScreen extends React.Component {
         <Video
           repeat
           muted
-          source={require('../../assets/video/test.mp4')}   // Can be a URL or a local file.
+          source={require('../../assets/video/sample02.mp4')}   // Can be a URL or a local file.
           ref={(ref) => {
             this.player = ref
           }}
@@ -51,6 +51,8 @@ var styles = StyleSheet.create({
     color: 'white'
   },
   backgroundVideo: {
+    aspectRatio: 1,
+    // width: "100%",
     position: 'absolute',
     height: 600,
     top: 80,
@@ -61,7 +63,7 @@ var styles = StyleSheet.create({
   button: {
     width: 250,
     position: 'absolute',
-    top: 300,
+    top: 350,
     left: 60,
     bottom: 0,
     borderColor: '#129793',

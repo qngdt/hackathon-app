@@ -75,7 +75,7 @@ class SetupTutorialScreen extends React.Component {
         <Video
           repeat
           muted
-          source={require('../../assets/video/test.mp4')}   // Can be a URL or a local file.
+          source={require('../../assets/video/setup01.mp4')}   // Can be a URL or a local file.
           ref={(ref) => {
             this.player = ref
           }}
@@ -108,6 +108,8 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   backgroundVideo: {
+    aspectRatio: 1,
+    width: "100%",
     position: 'absolute',
     height: 600,
     top: 80,
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
   button: {
     width: 250,
     position: 'absolute',
-    top: 300,
+    top: 350,
     left: 60,
     bottom: 0,
     borderColor: '#129793',
